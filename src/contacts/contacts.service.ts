@@ -15,9 +15,11 @@ export class ContactsService {
     return this.prisma.contact.findUnique({ where: { id } });
   }
 
-  async create(contactInput: Prisma.ContactCreateInput): Promise<Contact> {
+  async create(
+    contactCreateInput: Prisma.ContactCreateInput,
+  ): Promise<Contact> {
     return await this.prisma.contact.create({
-      data: contactInput,
+      data: contactCreateInput,
     });
   }
 
@@ -27,11 +29,11 @@ export class ContactsService {
 
   async update(
     id: number,
-    contactInput: Prisma.ContactUpdateInput,
+    contactUpdateInput: Prisma.ContactUpdateInput,
   ): Promise<Contact> {
     return await this.prisma.contact.update({
       where: { id },
-      data: contactInput,
+      data: contactUpdateInput,
     });
   }
 }
